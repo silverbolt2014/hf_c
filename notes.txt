@@ -1,0 +1,14 @@
+Chapter 1
+
+==
+
+You can compile and run your code on most machines using this trick:
+
+gcc zork.c -o zork && ./zork
+
+&& here means “and then if it’s successful, do this…”
+
+This command will run the new program only if it compiles successfully. If there’s a problem with the compile, it will skip running the program and simply display the errors on the screen.
+
+==
+
