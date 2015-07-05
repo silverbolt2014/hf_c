@@ -78,4 +78,41 @@ xxd <file_name> for file hex dump
 The right column in the output is the ascii translation of the numbers
 ==
 
+Microprocessor vs microcontroller
+	
+A microprocessor generally does not have Ram, ROM and IO pins. It usually uses its pins as a bus to interface to peripherals such as RAM, ROM, Serial ports, Digital and Analog IO. It is expandable at the board level due to this.
+
+A microcontroller is 'all in one', the processor, ram, IO all on the one chip, as such you cannot (say) increase the amount of RAM available or the number of IO ports. The controlling bus is internal and not available to the board designer.
+
+This means that a microprocessor is generally capable of being built into bigger general purpose applications than a microcontroller. The microcontroller is usually used for more dedicated applications.
+
+All of this is very general statements, there are chips available that blur the boundaries.
+
+
+==
+
+
+Arduino
+
+An Arduino is a PCB containing an Atmel AVR microcontroller and usually providing a set of connectors in a standard pattern. The microcontroller is typically preprogrammed with a "bootloader" program that allows a program (called a "sketch") to be loaded into the microcontroller over a TTY serial connection (or virtual serial over USB connection) from a PC.
+Microprocessor
+
+A microprocessor is an IC that contains only a central processing unit (CPU). The IC does not contain RAM, ROM or other peripherals. The IC may contain cache memory but it is not designed to be usable without any external memory.
+
+Microprocessors cannot store programs internally and therefore typically load software when powered on, this usually involves a complex multi-stage "boot" process where "firmware" is loaded from external ROM and eventually an operating system is loaded from other storage media (e.g. hard disk).
+
+It is typically found in a personal computer.
+Microcontroller
+
+A microcontroller is an IC that contains a CPU as well as some amount or RAM, ROM and other peripherals. Microcontrollers can function without external memory or storage.
+
+Normally, microcontrollers are either programmed before being soldered to a PCB or are programmable using In-System-Programming (ISP or ICSP) connectors via a special "programmer" device attached to a personal computer.
+
+Typical microcontrollers are much simpler and slower than typical microprocessors but I believe the distinction is mostly one of scale and application.
+
+It is found, for example, in simple appliances such as basic washing machines.
+
+==
+
+
 
