@@ -12,3 +12,70 @@ This command will run the new program only if it compiles successfully. If there
 
 ==
 
+
+****************************
+Chapter 4
+****************************
+To compile c files to object code witout linking them:
+
+gcc -c *.c
+
+
+To link all object files together:
+
+gcc *.o -o launch
+
+
+
+You can compile your applications really quickly in gcc, as long as 
+you keep track of  which files have changed. That’s a tricky thing to 
+do, but it’s also pretty straightforward to automate. Imagine you have 
+a file that is generated from some other file. Let’s say it’s an object 
+file that is compiled from a source file:
+
+thruster.c    --->   thruster.o
+
+How do you tell if  the thruster.o file needs to be recompiled? You just 
+look at the timestamps of  the two files. If  the thruster.o file is older 
+than the thruster.c file, then the thruster.o file needs to be recreated. 
+Otherwise, it’s up to date.
+
+That’s a pretty simple rule. And if  you have a simple rule for 
+something, then don’t think about it—automate it…
+
+
+make is a tool that can run the compile command for you. The 
+make tool will check the timestamps of  the source files and the 
+generated files, and then it will only recompile the files if  things have 
+gotten out of  date. 
+
+
+Every file that make compiles is called a target. Strictly speaking, 
+make isn’t limited to compiling files. A target is any file that is 
+generated from some other files. So a target might be a zip archive 
+that is generated from the set of  files that need to be compressed.
+
+
+For every target, make needs to be told two things:
+
+* The dependencies.
+Which files the target is going to be generated from.
+
+
+* The recipe.
+The set of  instructions it needs to run to generate the file.
+
+
+Together, the dependencies and the recipe form a rule. A rule tells 
+make all it needs to know to create the target file. 
+
+
+==
+hex dump
+
+xxd <file_name> for file hex dump
+
+The right column in the output is the ascii translation of the numbers
+==
+
+
