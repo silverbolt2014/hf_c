@@ -229,3 +229,17 @@ Redefining a function in a derived class is called function overriding
 
 
 =========
+
+POSIX
+
+POSIX an acronym for Portable Operating System Interface,is a family of standards specified by the IEEE Computer Society for maintaining compatibility between operating systems. POSIX defines the application programming interface (API), along with command line shells and utility interfaces, for software compatibility with variants of Unix and other operating systems.
+
+==========
+
+
+The math library must be linked in when building the executable. How to do this varies by environment, but in Linux/Unix, just add -lm to the command:
+
+gcc test.c -o test -lm
+The math library is named libm.so, and the -l command option assumes a lib prefix and .a or .so suffix.
+
+=========
