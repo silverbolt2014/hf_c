@@ -143,6 +143,38 @@ After this, each invocation of the va_arg macro yields the next argument. The fi
 Finally, the va_end macro must be called on the va_list before the function returns. (It is not required to read in all the arguments.)
 
 
+=======
+
+Every function name is a pointer to the function
+
+Think about what the name of  
+a function really is. It’s a way of  referring to the piece 
+of  code. And that’s just what a pointer is: a way of 
+referring to something in memory.
+
+That’s why, in C, function names are also pointer  
+variables. When you create a function called  
+go_to_warp_speed(int speed), you are also 
+creating a pointer variable called go_to_warp_speed 
+that contains the address of  the function. So, if  you give 
+find() a parameter that has a function pointer type, you 
+should be able to use the parameter to call the function it 
+points to. 
+
+
+Whenever you create a function, 
+you also create a function pointer 
+with the same name. 
+
+The pointer contains the 
+address of the function. 
+
+
+
+What does char** mean? Is it a typing error?
+char** is a pointer normally used to point to an 
+array of strings.
+
 
 
 
