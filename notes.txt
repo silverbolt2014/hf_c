@@ -201,3 +201,31 @@ Code (after the assembly has changed it to zeros and ones from assembly language
 Low Address
 
 
+==================
+
+Overloading vs. overriding  
+
+Overriding of functions occurs when one class is inherited from another class. Overloading can occur without inheritance.
+
+Overloaded functions must differ in function signature ie either number of parameters or type of parameters should differ. In overriding, function signatures must be same.
+
+Overridden functions are in different scopes; whereas overloaded functions are in same scope.
+
+Overriding is needed when derived class function has to do some added or different job than the base class function.
+
+Overloading is used to have same name functions which behave differently depending upon parameters passed to them.
+
+What is overriding?
+Defining a function in the derived class with same name as in the parent class is called overriding. In C++, the base class member can be overridden by the derived.............
+
+
+Explain the problem with overriding functions.
+Overriding of functions occurs in Inheritance. A derived class may override a base class member function. In overriding, the function names and parameter list are same in both the functions...............
+
+
+Explain the difference between overloaded functions and overridden functions.
+Overloading is a static or compile-time binding and Overriding is dynamic or run-time binding.
+Redefining a function in a derived class is called function overriding
+
+
+=========
