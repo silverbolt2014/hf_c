@@ -12,6 +12,15 @@ This command will run the new program only if it compiles successfully. If there
 
 ==
 
+****************************
+Chapter 2
+****************************
+a pointer is just the address of a piece of data in memory
+
+a pointer variable is a variable that stores a memory address
+
+
+
 
 ****************************
 Chapter 4
