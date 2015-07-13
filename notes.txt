@@ -275,3 +275,129 @@ gcc test.c -o test -lm
 The math library is named libm.so, and the -l command option assumes a lib prefix and .a or .so suffix.
 
 =========
+
+Toolchain
+
+In software, a toolchain is the set of programming tools used to perform a complex task or to create a product, which is typically another computer program or a system of programs. In general, the tools forming a toolchain are used consecutively so the output or resulting environment state of each tool becomes the input or starting environment for the next one, but the term is also used when referring to sets of related tools.
+
+A simple software development toolchain consists of a compiler and linker to transform the source code into an executable program, libraries to provide interfaces to the operating system, and a debugger. A complex product such as a video game needs tools for preparing sound effects, music, textures, 3-dimensional models, and animations, and further tools for combining these resources into the finished product.
+
+A toolchain is a set of distinct software development tools that are linked (or chained) together by specific stages such as GCC, binutils and glibc (a portion of the GNU Toolchain). Optionally, a toolchain may contain other tools such as a Debugger or a Compiler for a specific programming language, such as ,C++. Quite often, the toolchain used for embedded development is a cross toolchain, or more commonly known as a cross compiler.
+
+All the programs (like GCC) run on a host system of a specific architecture (such as x86) but produce binary code (executables) to run on a different architecture (e.g. ARM). This is called cross compilation and is the typical way of building embedded software
+
+When talking about toolchains, one must distinguish three different machines :
+
+* the build machine, on which the toolchain is built
+* the host machine, on which the toolchain is executed
+* the target machine, for which the toolchain generates code
+
+From these three different machines, we distinguish four different types of toolchain building processes :
+
+* A native toolchain, as can be found in normal Linux distributions, has usually been compiled on x86, runs on x86 and generates code for x86.
+
+* A cross-compilation toolchain, which is the most interesting toolchain type for embedded development, is typically compiled on x86, runs on x86 and generates code for the target architecture (be it ARM, MIPS, PowerPC or any other architecture supported by the different toolchain components)
+
+* A cross-native toolchain, is a toolchain that has been built on x86, but runs on your target architecture and generates code for your target architecture. It's typically needed when you want a native gcc on your target platform, without building it on your target platform.
+
+* A canadian build is the process of building a toolchain on machine A, so that it runs on machine B and generates code for machine C. It's usually not really necessary.
+
+
+=====
+
+The GNU toolchain 
+
+The GNU toolchain is a broad collection of programming tools produced by the GNU Project. These tools form a toolchain (a suite of tools used in a serial manner) used for developing software applications and operating systems.
+
+
+
+Projects included in the GNU toolchain are:
+
+* GNU make: Automation tool for compilation and build;
+* GNU Compiler Collection (GCC): Suite of compilers for several programming languages;
+* GNU Binutils: Suite of tools including linker, assembler and other tools;
+* GNU Bison: Parser generator
+* GNU m4: m4 macro processor
+* GNU Debugger (GDB): Code debugging tool;
+* GNU build system (autotools):
+  - Autoconf
+  - Autoheader
+  - Automake
+  - Libtool
+
+
+
+======
+
+Compilation Process:
+Compiling a program involves many tools, GCC takes care of this by calling other programs to handle each stage of the process.
+
+
+hello.c -------------> [ preprocessor]  --> preprocessed code file - hello.i
+#included header files ->
+
+hello.i ---> [compilier] --> assembly code file - hello.s
+
+hello.s ---> [assembler] --> object code file - hello.o
+
+
+hello.o ---------------------->   [linker] ---> executable code.hello.exe
+library files ---------------->
+other object files/modules --->
+
+
+References:
+http://www.tenouk.com/ModuleW.html
+http://www.nongnu.org/c-prog-book/online/x972.html
+
+http://faculty.cs.niu.edu/~mcmahon/CS241/Notes/compile.html
+http://althing.cs.dartmouth.edu/local/www.acm.uiuc.edu/sigmil/RevEng/ch02.html
+
+
+
+==============
+
+Java software for your computer, or the Java Runtime Environment, is also referred to as the Java Runtime, Runtime Environment, Runtime, JRE, Java Virtual Machine, Virtual Machine, Java VM, JVM, VM, Java plug-in, Java plugin, Java add-on or Java download.
+
+Java Runtime Environment (JRE)
+The Java Runtime Environment (JRE), also known as Java Runtime, is part of the Java Development Kit (JDK), a set of programming tools for developing Java applications. The Java Runtime Environment provides the minimum requirements for executing a Java application; it consists of the Java Virtual Machine (JVM), core classes, and supporting files
+
+
+====
+
+A JVM implementation is a computer program that meets the requirements of the JVM specification in a compliant and preferably performant manner. An instance of the JVM is a process that executes a computer program compiled into Java bytecode.
+
+
+==========
+
+Runtime enviroment refers to the set of things/components one needs to run a program.
+These things can include:
+- library files
+- other programs
+
+
+
+========
+
+
+Distinguish this from Development Environments and Build Environments.
+
+You will tend to find a hierarchy here.
+
+Run - Everything you need to execute a program, but no tools to change it.
+
+Build - Given some code written by someone eveything you need to compile or otherwise prepare an executable that you put into a Run environment. Build environments are pretty useless unless you can tets what you built, so they often include Run too. In Build you can't actually modify the code.
+
+Develop - Everything you need to write code, build it and test it. Code Editors and other such tools. Typically also includes Build and Run.
+
+
+===============
+
+GDB tutorial
+
+http://www.cs.umd.edu/~srhuang/teaching/cmsc212/gdb-tutorial-handout.pdf
+
+============
+
+
+
