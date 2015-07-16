@@ -399,5 +399,81 @@ http://www.cs.umd.edu/~srhuang/teaching/cmsc212/gdb-tutorial-handout.pdf
 
 ============
 
+cat
+The cat command outputs the contents of one more more files.
+The general syntax of the cat command is as follows:
+
+$cat file1 file2
+
+When you run this command, cat prints the contents of file1, file2, and any other files that you specify 
+(denoted by ...), and then exits. The command is called cat because it performs concatenation when it 
+prints the contents of more than one file.
+
+
+less
+The less command comes in handy when a file is really big or when a command’s output is long and scrolls 
+off the top of the screen. 
+To page through a big file like /usr/share/dict/words, use the command less /usr/share/dict/words. 
+When running less, you’ll see the contents of the file one screenful at a time. Press the spacebar to go 
+forward in the file and the b key to skip back one screenful. To quit, type q. 
+
+NOTE 
+The less command is an enhanced version of an older program named more. Most Linux 
+desktops and servers have less, but it’s not standard on many embedded systems and other 
+Unix systems. So if you ever run into a situation when you can’t use less, try more.
+
+
+Shell and Environment Variables
+The shell can store temporary variables, called shell variables, containing the values of text strings.
+
+To assign a value to a shell variable, use the equal sign (=). Here’s a simple example: 
+$ STUFF=blah 
+
+The preceding example sets the value of the variable named STUFF to blah. To access this variable, use 
+$STUFF (for example, try running echo $STUFF)
+
+An environment variable is like a shell variable, but it’s not specific to the shell. All processes on Unix systems 
+have environment variable storage. The main difference between environment and shell variables is that the 
+operating system passes all of your shell’s environment variables to programs that the shell runs, whereas shell 
+variables cannot be accessed in the commands that you run. 
+
+Assign an environment variable with the shell’s export command. For example, if you’d like to make the 
+$STUFF shell variable into an environment variable, use the following: 
+
+$ STUFF=blah 
+$ export STUFF
+
+
+==============
+
+In make, a "target" is any file that is generated from some other file(s).
+So a target might be a zip archive that is generated from the set of files that need to be compressed.
+
+
+Every target needs two things:
+1. The dependencies: the files the target is going to be generated from
+2. The recipe: the set of instructions to generate the target
+
+The dependencies and the recipe form the rule.
+
+
+If the target has is older than any of its dependencies that the recipe is run.
+
+If a target is included as a command-line argument, that target is updated. If no com-
+mand-line targets are given, then the first target in the file is used, called the default
+goal.
+
+
+
+When make is asked to evaluate a rule, it begins by finding the files indicated by the
+prerequisites and target. If any of the prerequisites has an associated rule, make
+attempts to update those first. Next, the target file is considered. If any prerequisite
+is newer than the target, the target is remade by executing the commands. Each com-
+mand line is passed to the shell and is executed in its own subshell. If any of the
+commands generates an error, the building of the target is terminated and make exits.
+One file is considered newer than another if it has been modified more recently.
+
+
+
 
 
