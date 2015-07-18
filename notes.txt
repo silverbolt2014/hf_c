@@ -474,6 +474,19 @@ commands generates an error, the building of the target is terminated and make e
 One file is considered newer than another if it has been modified more recently.
 
 
+==============================
+The generic word “compiler” actually refers to a number of different modules/programs.
+The main modules of a compiler
+
+1 Preprocessor
+2 Compiler
+3 Assembler
+4 Linker
+
+Source Code -> [Pre-processor] -> Pre-processed source code -> [Compiler] -> Assembly Code
+Assembly code - > [Assembler] -> Object Code File (s)  + Libraires -> [Linker] -> Executable Code
+https://www.youtube.com/watch?v=VDslRumKvRA
+
 
 
 
