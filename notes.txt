@@ -489,4 +489,68 @@ https://www.youtube.com/watch?v=VDslRumKvRA
 
 
 
+========
+
+Data Streams
+
+
+A data stream is a stream of data that goes into or comes out of a process.
+
+A process has data streams associated with it.
+When the process starts the OS will create the data streams for the process.
+
+
+Each process had three default data streams called:
+Standard input aka stdin
+Standard Output aka stdout
+Standard Error aka stderr
+
+Think of each data stream as pipes coming out of the process.
+You can connect these pipes to different things.
+
+Each data stream is represented by a number called a file descriptor.
+The number is an index in table (like an array).
+
+
+Each process contains a table called the file descriptor table.
+The file descriptable table records where each data stream is connected.
+
+The data stream standard input is given index 0 in the table.
+The data stream standard output is given index 1 in the table.
+The data stream standard error is given index 2 in the table.
+
+
+The value at each index in the table, tell us what the data stream is connected to.
+
+By default the the standard data streams are connected as follows:
+standard input --> keyboard
+standard output --> screen
+standard error --> screen
+
+You can change what the data stream is conencted to by using redirection.
+
+==
+
+Each running process has a file descriptor table which
+contains pointers to all open i/o streams.  When a
+process starts, three entries are created in the first
+three cells of the table.  Entry 0 points to standard
+input, entry 1 points to standard output, and entry 2
+points to standard error.  Whenever a file or other i/o
+stream is opened, a new entry is created in this table,
+usually in the first available empty slot.
+
+File descriptors are an index into a file-descriptor table stored by the kernel. The kernel creates a file-
+
+descriptor in response to an open call and associates the file-descriptor with some abstraction of an underlying 
+
+file-like object; be that an actual hardware device, or a file-system or something else entirely. Consequently a 
+
+processes read or write calls that reference that file-descriptor are routed to the correct place by the kernel to 
+
+ultimately do something useful.
+
+
+
+
 
